@@ -1,0 +1,256 @@
+*{
+    box-sizing: border-box;
+    font-family:'Press Start 2P', cursive;
+    color: white
+}
+body{
+    background-color: darkslategray;
+    display : flex;
+    flex-flow:column wrap;
+    justify-content: center;
+    align-content:center;
+    height:100vh;
+    
+}
+
+#play_btn{
+    background-image:url(./Retained/play_btn.png);
+    width : 150px;
+    height : 50px;
+    border:solid 1px white;
+    text-align:center;
+    justify-content: center;
+
+}
+
+/*Big div holding the content*/
+#main{
+    width:860px;
+    height: 600px;border: solid 1px white;
+    top:20%;
+}
+
+/*Big div holding the background and animation*/
+#main-box{
+    width:858px;
+    height:598px;
+    background-image: url(./Retained/environment.psd.png);
+    position:relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* animation: animate 60s linear infinite; */
+
+}
+
+.animate-bg{
+    animation: animate 60s linear infinite;
+}
+
+@keyframes animate{
+    from{
+        background-position: 0; 
+    }
+    to{
+        background-position : -5486px;
+    }
+}
+
+/*The aside with the enemy Info*/
+
+#enemy_box{
+    width : 190px;
+    height : 190px;
+    background-color:#234591;
+    border : 2px solid white;
+    align-items : center;
+    visibility:hidden;
+    padding: 25px;
+ 
+}
+
+/*Area with interactions writtent down*/
+#top_text{
+    width:860px;
+    height:90px;
+    background-color:#234591;
+    border : 2px solid white;
+    align-items : center;
+    visibility : hidden;
+    padding : 25px;
+}
+
+/*Main content for the game (enemy sprite)*/
+#middle{
+    height:350px;
+}
+
+#mid_content{
+    height:350px;
+    justify-content:center;
+    display:flex;
+    align-items:center;
+    align-content:center;
+    flex-direction : column; 
+    background-color:rgba(3, 0, 0, 0.35);  
+}
+
+#mid_battle{
+    justify-content:space-around;
+    display:flex;
+    align-items:center;
+    align-content:center;
+    flex-direction : row nowrap; 
+      
+}
+
+#monster_spot{
+    width:139px;
+    height:139px;
+    background-image : url(./Retained/Foes/Foes_raw/rat.png);
+    /* background-color:rgba(255, 255, 255, 0.664); */
+    animation : animar 1s steps(4) infinite;
+    
+}
+
+@keyframes animar{
+    from{
+        background-position:0; 
+    }
+    to{
+        background-position : -555px;
+    }
+}
+
+/*Area at the bottom of the screen. When alone, the place where the text appears*/
+#bottom_menu{
+    background-color:#234591;
+    border : 2px solid white;
+    height:160px;
+}
+
+/*Part where the text is displayed during story time*/
+#story_text{
+    padding:10px 30px;
+    margin :10px 30px;
+    /* visibility : hidden; */
+}
+/* Div with all the battle infos */
+#battle{
+    visibility : hidden;
+}
+
+#skill_screen{
+    visibility:hidden;
+    height:160;
+    width:450;
+    display:grid;
+    background-color:#234591;
+    border : 2px solid white;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
+
+}
+/*Part where the menu is displayed*/
+#combat_menu{
+    background-color:#234591;
+    border : 2px solid white;
+    height:160px;
+    display : grid;
+    grid-template-columns : 20% 20% 20% 20% 20%;
+    grid-template-rows: 50% 50%; 
+    justify-items: center;
+    align-items:center;
+    /* visibility:hidden; */
+}
+
+/*Hero avatar area*/
+#avatar{
+    grid-column-start:1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    background-image: url(./Retained/hero_battle.png);
+    height:150px;
+    width:119px;
+    animation : avatar 1s steps(2) infinite;
+    
+}
+
+@keyframes avatar{
+    from{
+        background-position:0; 
+    }
+    to{
+        background-position : -237px;
+    }
+}
+
+/*Health mana and levek*/
+#status{
+    grid-column-start: 2;
+    grid-column-end: 2;
+    text-align:left;
+}
+#name{
+    grid-column-start: 3;
+    grid-column-end: 3;
+    text-align:left;
+}
+/*attack button*/
+#atk{
+border:solid 1px white;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start:1;
+    grid-row-end:1;
+}
+/*skill button*/
+#skill{
+    border:solid 1px white;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start:2;
+    grid-row-end:2;
+}
+/*defend button*/
+#def{
+    border:solid 1px white;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    grid-column-start: 4;
+    grid-column-end:4 ;
+    grid-row-start:2;
+    grid-row-end:2;
+}
+/*flex button*/
+#flex{
+    border:solid 1px white;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    grid-column-start: 5;
+    grid-column-end: 5;
+    grid-row-start:1;
+    grid-row-end:1;
+}
+
+.combat{
+    display:flex;
+    text-align: center;
+}
+
+/* border: solid 1px white; */
