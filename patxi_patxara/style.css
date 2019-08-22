@@ -51,7 +51,7 @@ body{
         background-position: 0; 
     }
     to{
-        background-position : -5486px;
+        background-position : -3486px;
     }
 }
 
@@ -62,7 +62,7 @@ body{
     height : 190px;
     background-color:#234591;
     border : 2px solid white;
-    align-items : center;
+    align-self : flex-start;
     visibility:hidden;
     padding: 25px;
  
@@ -95,6 +95,7 @@ body{
 }
 
 #mid_battle{
+    margin-top:20px;
     justify-content:space-around;
     display:flex;
     align-items:center;
@@ -104,8 +105,8 @@ body{
 }
 
 #monster_spot{
-    width:139px;
-    height:139px;
+    width:190px;
+    height:190px;
     background-image : url(./Retained/Foes/Foes_raw/rat.png);
     /* background-color:rgba(255, 255, 255, 0.664); */
     animation : animar 1s steps(4) infinite;
@@ -117,7 +118,7 @@ body{
         background-position:0; 
     }
     to{
-        background-position : -555px;
+        background-position : -759px;
     }
 }
 
@@ -197,6 +198,7 @@ body{
 }
 /*attack button*/
 #atk{
+    /* transition: all 1s linear; */
 border:solid 1px white;
 width:100%;
 height:100%;
@@ -254,3 +256,84 @@ grid-column-start: 4;
 }
 
 /* border: solid 1px white; */
+
+#game_over{
+    background-image: url("./Retained/hero_dead.png");
+    height:150px;
+    width : 237px;
+}
+
+#tutorial{
+    margin-top:20px;
+    padding:20px;
+    width:860px;
+    border:1px solid white;
+    background: #0c1a36;
+    opacity: 0.5;
+
+}
+
+#atk:hover{
+    background: #0c1a36;
+/* transform :translateY(-10%); */
+}
+/* #atk:active{
+    transform:translateY(5%);
+} */
+#flex:hover{
+    background: #0c1a36;
+}
+#def:hover{
+    background: #0c1a36;
+}
+#skill:hover{
+    background: #0c1a36;
+}
+
+#tutorial:hover{
+    opacity : 1;
+}
+
+
+#tutorial p{
+    font-size : 1rem;
+}
+
+#sound_control{
+    padding:20px;
+}
+
+.fas{
+    font-size:2rem;
+}
+
+#boss_intro{
+    background-image:url("./Retained/Foes/Foes_raw/boss.png");
+    height:224px;
+    width:287px;
+    animation : bigboss 2s steps(2) infinite;
+}
+
+@keyframes bigboss{
+    from{
+        background-position:0; 
+    }
+    to{
+        background-position : -574px;
+    }
+}
+#game_won{
+    background-image:url("./Retained/hero_win.png");
+    height:224px;
+    width:287px;
+    animation : win 1s steps(2) infinite;
+}
+
+@keyframes win{
+    from{
+        background-position:0; 
+    }
+    to{
+        background-position : -574px;
+    }
+}

@@ -31,49 +31,106 @@ export class Hero {
    }
 
    lvlUp(cb){
-        if(this.lvl>=5){
+
+    if(this.lvl>=7){
+        this.curXp -= this.maxXp;
+        this.maxXp +=15;   
+        this.lvl+=1;
+        this.atk += 8;
+        this.maxHp += 25;
+        this.hp += 25;
+        this.maxMp += 14; 
+        this.mp += 14; 
+        this.def += 7;
+        this.mag += 9;
+        this.spr += 5;
+        cb(this)   
+        return 
+        }
+
+    if(this.lvl>=5){
+            this.curXp -= this.maxXp;
+            this.maxXp +=10;   
+            this.lvl+=1;
+            this.atk += 5;
+            this.maxHp += 18;
+            this.hp += 18;
+            this.maxMp += 5; 
+            this.mp += 5; 
+            this.def += 4;
+            this.mag += 4;
+            this.spr += 3;
+            this.max += 0.2;
+            cb(this)   
+            return 
+            }
+
+
+        if(this.lvl>=3){
         this.curXp -= this.maxXp;
         this.maxXp +=8;   
         this.lvl+=1;
-        this.atk += 5;
-        this.maxHp += 25;
-        this.hp += 25;
-        this.maxMp += 10; 
-        this.mp += 10; 
+        this.atk += 4;
+        this.maxHp += 14;
+        this.hp += 14;
+        this.maxMp += 5; 
+        this.mp += 5; 
         this.def += 4;
-        this.mag += 5;
-        this.spr += 5;
-        cb(this)   
+        this.mag += 4;
+        this.spr += 4;
+        cb(this)  
+        return  
         }
+
+        
+
+        
 
         this.curXp -= this.maxXp;
         this.maxXp +=5;   
         this.lvl+=1;
-        this.atk += 3;
-        this.maxHp += 20;
-        this.hp += 20;
-        this.maxMp += 5; 
-        this.mp += 5; 
-        this.def += 3;
-        this.mag += 4;
-        this.spr += 3;
+        this.atk += 2;
+        this.maxHp += 10;
+        this.hp += 10;
+        this.maxMp += 3; 
+        this.mp += 3; 
+        this.def += 2;
+        this.mag += 2;
+        this.spr += 1;
         cb(this)
+        
         
    }
 
+   fullHeal(){
+       this.hp = this.maxHp;
+       this.mp = this.maxMp;
+   }
+
    criticalHit(min, max){
-            return Math.random() * (max - min) + min;
+       let criticalHit = Number((Math.random() * max).toFixed(1));
+
+            return  criticalHit <= min ? min : criticalHit;
    }
 
 
    attack() {
-    return this.atk;
-   
+  return Number( (this.atk *this.criticalHit(this.min,this.max)).toFixed(0));
+
    }
 
    magic(){
+       if(this.lvl<=4){
        this.mp -=5
-       return this.mag;
+    }
+    else if (this.lvl>4){
+        this.mp-= 7
+    }
+    else if (this.lvl>=7){
+        this.mp-=9
+    }
+    return Number( (this.mag *this.criticalHit(this.min,this.max)).toFixed(0));
+
    }
 
    seduce(){
@@ -100,12 +157,26 @@ export class Hero {
 
    receivePhysDamage(damage){
        let physDmgReceived = damage - this.def;
-       return this.hp -= physDmgReceived; 
+       if(physDmgReceived<1){
+        physDmgReceived = 0
+       }
+       this.hp -= physDmgReceived;
+       
+       return physDmgReceived
+   }
+   failureDamage(damage){
+        this.hp -= damage;
+       return damage
    }
 
    receiveMagDamage(damage){
        let magDmgReceived = damage - this.spr;
-       return this.hp -=magDmgReceived;
+       if(magDmgReceived<1){
+        magDmgReceived = 0
+       }
+       this.hp -= magDmgReceived;
+       
+       return magDmgReceived
    }
 
    everyFiveStages(){
@@ -136,25 +207,51 @@ export class Foe{
         this.lvl = lvl;
         this.scare = scare;
         this.seduction = seduction;
+        this.min = 0.9;
+        this.max = 1.2;
     
        }
 
+       criticalHit(min, max){
+        let criticalHit = Number((Math.random() * max).toFixed(1));
+        console.log(criticalHit)
+             return  criticalHit <= min ? min : criticalHit;
+    }
+ 
+ 
        foeAttack() {
-        return this.atk;
+        return Number( (this.atk *this.criticalHit(this.min,this.max)).toFixed(0));
        }
 
        foeMagic(){
-           return this.mag;
+        return Number((this.mag *this.criticalHit(this.min,this.max)).toFixed(0));
        }
 
        receiveDamage(damage){
-        let dmgReceived =  damage-this.def;  
-        this.hp -= dmgReceived 
+        let dmg =  damage-this.def; 
+        console.log(dmg) 
+        if (dmg <=0){
+            dmg = 0
+        }
+        console.log(dmg)
+        this.hp -= dmg
+        console.log(this.hp)
+        return dmg
        }
        
-       receiveMagicDamage(magicDamage){
-        let mDmgReceived =  magicDamage-this.spr;  
-        this.hp -= mDmgReceived 
+       
+       receiveMagicDamage(damage){
+        let mDmg =  damage-this.spr;
+        console.log(mDmg)  
+        if (mDmg <=0){
+            mDmg = 0
+            
+        }
+        console.log(this)
+        console.log(mDmg)
+        this.hp -= mDmg
+        
+        return mDmg
        }
 
 }
