@@ -141,7 +141,7 @@ body{
 
 /*Part where the text is displayed during story time*/
 #story_text{
-    padding:10px 30px;
+    padding:20px 30px;
     margin :0 30px;
 
     /* visibility : hidden; */
