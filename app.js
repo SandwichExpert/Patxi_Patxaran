@@ -190,9 +190,9 @@ function newLevel(patxi){
     var newLevelAudio = new Audio("./Retained/Sounds/blessing.ogg")
      
     setTimeout(() => { document.getElementById('top_text').innerHTML = "You gained a level!";newLevelAudio.play()  },3000);
-    document.getElementById('status').innerHTML = `<span>LVL:${patxi.lvl}</span>`
-    document.getElementById('health').innerHTML = `<span>HP:${patxi.hp}/${patxi.maxHp}</span>`
-    document.getElementById('mana').innerHTML = `<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
+    document.getElementById('mana').innerHTML = `<span>LVL:${patxi.lvl}</span>`
+    document.getElementById('status').innerHTML = `<span>HP:${patxi.hp}/${patxi.maxHp}</span>`
+    document.getElementById('name').innerHTML = `<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
     document.getElementById('atk').innerHTML = `<span>ATK:${patxi.atk}</span>`
     document.getElementById('flex').innerHTML = `<span>MAG:${patxi.mag}</span>`
 }
@@ -355,7 +355,7 @@ function gameOver(){
 //PATXI MAG DAMAGE TURN 
 
 function updateMp(){
-    document.getElementById('mana').innerHTML=`<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
+    document.getElementById('name').innerHTML=`<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
 }
 
 
@@ -546,7 +546,7 @@ function scareBoss(currentFoe){
 //HP UPDATES UPON ATTACK---------------------------------------------------------------
 
 function updateEnemyHP(currentFoe) {
-    document.getElementById('enemy_box').innerHTML = `${currentFoe.name}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/>LVL: ${currentFoe.lvl}<br/>ATK:${currentFoe.atk}<br/>MAG:${currentFoe.mag}<br/>DEF:${currentFoe.def}<br/>SPR:${currentFoe.spr}`;
+    document.getElementById('enemy_box').innerHTML = `${currentFoe.name}<br/>LVL: ${currentFoe.lvl}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/><br/>ATK:${currentFoe.atk}<br/>DEF:${currentFoe.def}<br/>MAG:${currentFoe.mag}<br/>SPR:${currentFoe.spr}`;
     if (currentFoe.hp <= 0) {
         document.getElementById('enemy_box').innerHTML = `${currentFoe.name}<br/>HP: 0/${currentFoe.maxHp}<br/>LVL: ${currentFoe.lvl}`;
     }
@@ -554,8 +554,8 @@ function updateEnemyHP(currentFoe) {
 }
 
 function updateHeroHP() {
-    document.getElementById('health').innerHTML = `HP:${patxi.hp}/${patxi.maxHp}`;
-    if (patxi.hp<1){
+    document.getElementById('status').innerHTML = `HP:${patxi.hp}/${patxi.maxHp}`;
+    if (patxi.hp<1){    
         gameOver()
     }
 
@@ -693,7 +693,7 @@ function fightUi(currentFoe){
     // document.getElementById('story_text').style.visibility = "hidden";
     top_text.innerHTML = `A wild ${currentFoe.name} is blocking the way`;
 
-    middle.innerHTML = `<div id="mid_battle"><aside id="enemy_box">${currentFoe.name}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/>LVL: ${currentFoe.lvl}<br/>ATK:${currentFoe.atk}<br/>MAG:${currentFoe.mag}<br/>DEF:${currentFoe.def}<br/>SPR:${currentFoe.spr}</aside>
+    middle.innerHTML = `<div id="mid_battle"><aside id="enemy_box">${currentFoe.name}<br/>LVL: ${currentFoe.lvl}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/><br/>ATK:${currentFoe.atk}<br/>DEF:${currentFoe.def}<br/>MAG:${currentFoe.mag}<br/>SPR:${currentFoe.spr}</aside>
     <div id="monster_spot"></div></div>`;
     // document.getElementById('skill_screen').style.visibility = "visible";
     document.getElementById('enemy_box').style.visibility = 'visible';
@@ -707,10 +707,10 @@ function fightUi(currentFoe){
             <span id="combat_skill" class="combat">Seduce</span>
     </div>
     <div id="health">
-            <span>HP:${patxi.hp}/${patxi.maxHp}</span>
+            <span>${patxi.name}</span>
     </div>
     <div id="mana">
-    <span>MP:${patxi.mp}/${patxi.maxMp}</span>
+        <span>LVL:${patxi.lvl}</span>
     </div>
     <div id="avatar">
     </div>
@@ -721,10 +721,10 @@ function fightUi(currentFoe){
             <span id="combat_flex" class="combat">Mag:${patxi.mag}</span>
     </div>
     <div id="status">
-        <span>LVL:${patxi.lvl}</span>
+    <span>HP:${patxi.hp}/${patxi.maxHp}</span>
     </div>
     <div id="name">
-        <span>${patxi.name}</span>
+    <span>MP:${patxi.mp}/${patxi.maxMp}</span>
     </div>
 </div> 
 </div> `;
@@ -750,7 +750,7 @@ function bossFightUi(currentFoe){
     }, 1000);
 
 
-    middle.innerHTML = `<div id="mid_battle"><aside id="enemy_box">${currentFoe.name}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/>LVL: ${currentFoe.lvl}<br/>ATK:${currentFoe.atk}<br/>MAG:${currentFoe.mag}<br/>DEF:${currentFoe.def}<br/>SPR:${currentFoe.spr}</aside>
+    middle.innerHTML = `<div id="mid_battle"><aside id="enemy_box">${currentFoe.name}<br/>LVL: ${currentFoe.lvl}<br/>HP:${currentFoe.hp}/${currentFoe.maxHp}<br/><br/>ATK:${currentFoe.atk}<br/>DEF:${currentFoe.def}<br/>MAG:${currentFoe.mag}<br/>SPR:${currentFoe.spr}</aside>
     <div id="monster_spot"></div></div>`;
     // document.getElementById('skill_screen').style.visibility = "visible";
     document.getElementById('enemy_box').style.visibility = 'visible';
@@ -764,10 +764,10 @@ function bossFightUi(currentFoe){
             <span id="combat_skill" class="combat">Seduce</span>
     </div>
     <div id="health">
-            <span>HP:${patxi.hp}/${patxi.maxHp}</span>
+            <span>${patxi.name}</span>
     </div>
     <div id="mana">
-    <span>MP:${patxi.mp}/${patxi.maxMp}</span>
+        <span>LVL:${patxi.lvl}</span>
     </div>
     <div id="avatar">
     </div>
@@ -778,10 +778,10 @@ function bossFightUi(currentFoe){
             <span id="combat_flex" class="combat">Mag:${patxi.mag}</span>
     </div>
     <div id="status">
-        <span>LVL:${patxi.lvl}</span>
+    <span>HP:${patxi.hp}/${patxi.maxHp}</span>
     </div>
     <div id="name">
-        <span>${patxi.name}</span>
+    <span>MP:${patxi.mp}/${patxi.maxMp}</span>
     </div>
 </div> 
 </div> `;
