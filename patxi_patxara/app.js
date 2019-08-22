@@ -5,6 +5,20 @@ import {
     Foe
 } from "./class.js"
 
+// document.getElementById('sound_control').onclick = soundOff;
+// function soundOff(){
+// if ( document.getElementById("sound_control").classList.contains('fa-volume-mute') ){
+//     document.getElementById("sound_control").classList.add('fa-volume-up');
+//     document.getElementById("sound_control").classList.remove('fa-volume-mute');
+// }
+// else{
+//     document.getElementById("sound_control").classList.add('fa-volume-mute');
+//     document.getElementById("sound_control").classList.remove('fa-volume-up');
+// }
+
+// }
+
+
 var playBtn;
 var mainBox = document.getElementById('main-box')
 var botMenu = document.getElementById('bottom_menu')
@@ -21,7 +35,9 @@ var healSound = new Audio("./Retained/Sounds/magical_3.ogg")
 var magicSound = new Audio("./Retained/Sounds/magic.mp3")
 var bossSound = new Audio("./Retained/Sounds/boss.wav") 
 
-const patxi = new Hero('Patxi Patxaran', 160, 160, 50, 50, 12, 8, 10, 10, 0, 10, 1, 0.8, 2.2);
+
+
+const patxi = new Hero('Patxi Patxaran', 160, 160, 50, 50, 12, 8, 10, 10, 0, 10, 1, 0.8, 2.1);
 console.log(patxi);
 //Foe#1
 const rat = new Foe('Rat', 16, 16, 10, 5, 0, 3, 1, 10, false, true);
@@ -42,13 +58,13 @@ const demon = new Foe('Demon', 57, 57, 28, 22, 38, 27, 9, 57, false, true);
 //Foe#9
 const deceleon = new Foe('Deceleon', 65, 65, 40, 25, 20, 13, 11, 75, true, false);
 //Boss
-const boss = new Foe('Vino', 10, 10, 6, 3, 6, 3, 2, 100, true, true);
+const boss = new Foe('Vino', 100, 100, 60, 35, 60, 35, 12, 100, true, true);
 //Healing
 
 
 var foe = [rat,bat,slime,spider,scorpion,daemarbora,drakaurum,demon,deceleon,boss];
 
-var step = 8;
+var step = 0;
 
 openingContent();
 document.getElementById('play_btn').onclick = () => startGame(foe[step]);
@@ -79,6 +95,7 @@ function openingContent() {
 }
 
 function gameStartInner(){
+    document.getElementById('title').innerHTML="<h1 id='main_title'>The Adventures of Patxi Patxaran</h1>"
     mainBox.style.background = "url(./Retained/intro.png)";
     botMenu.style.visibility = "visible";
     middle.innerHTML = `<aside id="enemy_box"></aside>
@@ -109,7 +126,7 @@ function startGame(currentFoe) {
     setTimeout(() => {
         fightUi(currentFoe)
         fight(currentFoe);
-    }, 2000);
+    }, 7000);
 }
 
 
@@ -473,6 +490,7 @@ function bossTurn(currentFoe) {
 
     } else if (currentFoe.hp <= 0) {
         currentFoe.hp == 0
+        bossSound.pause();
         victoryBoss(currentFoe);
     }
 
@@ -711,7 +729,6 @@ function fightUi(currentFoe){
 </div> 
 </div> `;
 
-console.log('Hey There! ')
 }
 
 function bossFightUi(currentFoe){

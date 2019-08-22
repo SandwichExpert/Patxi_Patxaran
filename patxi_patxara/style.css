@@ -13,6 +13,14 @@ body{
     
 }
 
+#title{
+    margin-top:20px;
+    margin-bottom:30px;
+}
+#main_title{
+    opacity:0.7;
+}
+
 #play_btn{
     background-image:url(./Retained/play_btn.png);
     width : 150px;
@@ -25,15 +33,17 @@ body{
 
 /*Big div holding the content*/
 #main{
-    width:860px;
-    height: 600px;border: solid 1px white;
+    max-width:861px;
+    /* height: 600px; */
+    border: solid 1px white;
     top:20%;
+    margin :0 auto;
 }
 
 /*Big div holding the background and animation*/
 #main-box{
     width:858px;
-    height:598px;
+    height:100%;
     background-image: url(./Retained/environment.psd.png);
     position:relative;
     background-size: cover;
@@ -49,6 +59,7 @@ body{
 @keyframes animate{
     from{
         background-position: 0; 
+
     }
     to{
         background-position : -3486px;
@@ -56,7 +67,6 @@ body{
 }
 
 /*The aside with the enemy Info*/
-
 #enemy_box{
     width : 190px;
     height : 190px;
@@ -70,8 +80,8 @@ body{
 
 /*Area with interactions writtent down*/
 #top_text{
-    width:860px;
-    height:90px;
+    /* width:860px; */
+    height:20%;
     background-color:#234591;
     border : 2px solid white;
     align-items : center;
@@ -132,12 +142,15 @@ body{
 /*Part where the text is displayed during story time*/
 #story_text{
     padding:10px 30px;
-    margin :10px 30px;
+    margin :0 30px;
+
     /* visibility : hidden; */
 }
 /* Div with all the battle infos */
 #battle{
     visibility : hidden;
+    /* height:140px; */
+
 }
 
 #skill_screen{
@@ -270,6 +283,7 @@ grid-column-start: 4;
     border:1px solid white;
     background: #0c1a36;
     opacity: 0.5;
+    margin: 20px auto;
 
 }
 
