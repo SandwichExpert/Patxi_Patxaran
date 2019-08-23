@@ -126,7 +126,7 @@ function startGame(currentFoe) {
     setTimeout(() => {
         fightUi(currentFoe)
         fight(currentFoe);
-    }, 7000);
+    }, 10000);
 }
 
 
