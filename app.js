@@ -832,8 +832,8 @@ function fight(currentFoe) {
         patxi.fullHeal()
         document.getElementById('atk').innerHTML=`<span>ATK:${patxi.atk}</span>`
         document.getElementById('flex').innerHTML=`<span>MAG:${patxi.mag}</span>`
-        document.getElementById('health').innerHTML=`<span>HP:${patxi.hp}/${patxi.maxHp}</span>`
-        document.getElementById('mana').innerHTML=`<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
+        document.getElementById('status').innerHTML=`<span>HP:${patxi.hp}/${patxi.maxHp}</span>`
+        document.getElementById('name').innerHTML=`<span>MP:${patxi.mp}/${patxi.maxMp}</span>`
         
         
         console.log('you are healed!')
