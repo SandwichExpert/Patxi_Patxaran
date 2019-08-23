@@ -198,7 +198,7 @@ body{
     }
 }
 
-/*Health mana and levek*/
+/*Health mana and level*/
 #status{
     grid-column-start: 2;
     grid-column-end: 2;
@@ -223,6 +223,10 @@ grid-column-start: 4;
     grid-row-start:1;
     grid-row-end:1;
 }
+
+#atk:hover{
+    cursor:url('./Retained/attack.png'),pointer;
+}
 /*skill button*/
 #skill{
     border:solid 1px white;
@@ -235,6 +239,9 @@ grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start:2;
     grid-row-end:2;
+}
+#skill:hover{
+    cursor:url('./Retained/heart.png'),pointer;
 }
 /*defend button*/
 #def{
@@ -249,6 +256,10 @@ grid-column-start: 4;
     grid-row-start:2;
     grid-row-end:2;
 }
+
+#def:hover{
+    cursor:url('./Retained/scary.png'),pointer;
+}
 /*flex button*/
 #flex{
     border:solid 1px white;
@@ -261,6 +272,10 @@ grid-column-start: 4;
     grid-column-end: 5;
     grid-row-start:1;
     grid-row-end:1;
+}
+
+#flex:hover{
+    cursor:url('./Retained/magic.png'),pointer;
 }
 
 .combat{
