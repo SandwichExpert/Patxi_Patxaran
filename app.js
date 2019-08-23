@@ -701,7 +701,7 @@ function fightUi(currentFoe){
     botMenu.innerHTML = `<div id="battle">
     <div id="combat_menu">  
     <div id="atk">
-        <span id="combat_atk" class="combat">Atk:${patxi.atk}</span>
+        <span id="combat_atk" class="combat">ATK:${patxi.atk}</span>
     </div>
     <div id="skill">
             <span id="combat_skill" class="combat">Seduce</span>
@@ -718,7 +718,7 @@ function fightUi(currentFoe){
             <span id="combat_def" class="combat">Scare</span>
     </div>
     <div id="flex">
-            <span id="combat_flex" class="combat">Mag:${patxi.mag}</span>
+            <span id="combat_flex" class="combat">MAG:${patxi.mag}</span>
     </div>
     <div id="status">
     <span>HP:${patxi.hp}/${patxi.maxHp}</span>
